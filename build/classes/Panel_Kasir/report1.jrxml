@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="421" pageHeight="595" columnWidth="417" leftMargin="2" rightMargin="2" topMargin="2" bottomMargin="2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     print2.`NoTransaksi` AS print2_NoTransaksi,
+     print2.`nama_customer` AS print2_nama_customer,
+     print2.`tanggal` AS print2_tanggal,
+     print2.`id_barang` AS print2_id_barang,
+     print2.`nama_barang` AS print2_nama_barang,
+     print2.`harga_barang` AS print2_harga_barang,
+     print2.`Qty` AS print2_Qty,
+     print2.`total` AS print2_total,
+     print.`NoTransaksi` AS print_NoTransaksi,
+     print.`GrandTotal` AS print_GrandTotal,
+     print.`Tunai` AS print_Tunai,
+     print.`Kembalian` AS print_Kembalian
+FROM
+     `print2` print2,
+     `print` print]]>
+	</queryString>
+	<field name="print2_NoTransaksi" class="java.lang.String"/>
+	<field name="print2_nama_customer" class="java.lang.String"/>
+	<field name="print2_tanggal" class="java.lang.String"/>
+	<field name="print2_id_barang" class="java.lang.String"/>
+	<field name="print2_nama_barang" class="java.lang.String"/>
+	<field name="print2_harga_barang" class="java.lang.Integer"/>
+	<field name="print2_Qty" class="java.lang.Integer"/>
+	<field name="print2_total" class="java.lang.Integer"/>
+	<field name="print_NoTransaksi" class="java.lang.String"/>
+	<field name="print_GrandTotal" class="java.lang.Integer"/>
+	<field name="print_Tunai" class="java.lang.Integer"/>
+	<field name="print_Kembalian" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="78" width="417" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="8" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[NoTransaksi            :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="8" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print_NoTransaksi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="28" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Customer                :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="28" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print2_nama_customer}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="53" width="417" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="217" y="8" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal              :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="8" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print2_tanggal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="21"/>
+				<textElement/>
+				<text><![CDATA[NAMA BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="1" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[HARGA BARANG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print2_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{print2_harga_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{print2_Qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{print2_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="217" y="6" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Grand Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="6" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print_GrandTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="26" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tunai]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="26" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print_Tunai}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="46" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="317" y="46" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{print_Kembalian}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="72" width="414" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="0" width="417" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
